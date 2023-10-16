@@ -6,6 +6,8 @@ public class VectorExercises : MonoBehaviour
     [SerializeField] bool Q2a, Q2b, Q2d, Q2e;
     [SerializeField] bool Q3a, Q3b, Q3c, projection;
 
+    int x;
+
     private Line drawnLine;
 
     private Vector2 startPt;
