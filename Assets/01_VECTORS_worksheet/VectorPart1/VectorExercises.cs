@@ -81,7 +81,11 @@ public class VectorExercises : MonoBehaviour
 
     void Question2d()
     {
-
+        DebugExtension.DebugArrow(
+            new Vector3(0, 0, 0),
+            new Vector3(5, 5, 0),
+            Color.red,
+            60f);
     }
 
     void Question2e(int n)
@@ -92,9 +96,16 @@ public class VectorExercises : MonoBehaviour
                 Random.Range(-maxX, maxX), 
                 Random.Range(-maxY, maxY));
 
-            // Your code here
-            // ...
 
+            DebugExtension.DebugArrow(
+                new Vector3(Random.Range(minX, maxX),
+                Random.Range(minY, maxY),
+                Random.Range(minY, maxY)),
+                new Vector3(Random.Range(minX, maxX),
+                Random.Range(minY, maxY),
+                Random.Range(minY, maxY)),
+                Color.white,
+                60f);
             //DebugExtension.DebugArrow(
             //    new Vector3(0, 0, 0),
             //    // Your code here,
