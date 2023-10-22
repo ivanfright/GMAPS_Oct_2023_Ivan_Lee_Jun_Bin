@@ -94,25 +94,13 @@ public class VectorExercises : MonoBehaviour
     {
         for (int i = 0; i < n; i++)
         {
-            startPt = new Vector2(
-                Random.Range(-maxX, maxX), 
-                Random.Range(-maxY, maxY));
-
-
             DebugExtension.DebugArrow(
-                new Vector3(Random.Range(minX, maxX),
-                Random.Range(minY, maxY),
-                Random.Range(minY, maxY)),
+                new Vector3(0,0,0),
                 new Vector3(Random.Range(minX, maxX),
                 Random.Range(minY, maxY),
                 Random.Range(minY, maxY)),
                 Color.white,
                 60f);
-            //DebugExtension.DebugArrow(
-            //    new Vector3(0, 0, 0),
-            //    // Your code here,
-            //    Color.white,
-            //    60f);
         }  
     }
 
