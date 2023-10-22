@@ -106,29 +106,44 @@ public class VectorExercises : MonoBehaviour
 
     public void Question3a()
     {
+        
         HVector2D a = new HVector2D(3, 5);
         HVector2D b = new HVector2D(-4, 2);
-        HVector2D c = a + b;
+        HVector2D c = a - b;
+        //HVector2D c = a + b;
+
+        //DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
+        //DebugExtension.DebugArrow(Vector3.zero, b.ToUnityVector3(), Color.green, 60f);
+        //DebugExtension.DebugArrow(Vector3.zero, c.ToUnityVector3(), Color.white, 60f);
+        //DebugExtension.DebugArrow(a.ToUnityVector3(), b.ToUnityVector3(), Color.green, 60f);
 
         DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
         DebugExtension.DebugArrow(Vector3.zero, b.ToUnityVector3(), Color.green, 60f);
         DebugExtension.DebugArrow(Vector3.zero, c.ToUnityVector3(), Color.white, 60f);
-        DebugExtension.DebugArrow(a.ToUnityVector3(), b.ToUnityVector3(), Color.green, 60f);
+        DebugExtension.DebugArrow(a.ToUnityVector3(), - b.ToUnityVector3(), Color.green, 60f);
 
-        float mag = HVector2D.Magnitude();
 
-        //Debug.Log("Magnitude of a = " + // Your code here.ToString("F2"));
-        // Your code here
-        // ...
+        float MagofA = a.Magnitude();
+        Debug.Log("Magnitude of a = " + MagofA.ToString("F2"));
+        float MagofB = b.Magnitude();
+        Debug.Log("Magnitude of b = " + MagofB.ToString("F2"));
+        float MagofC = c.Magnitude();
+        Debug.Log("Magnitude of c = " + MagofC.ToString("F2"));
+
     }
 
     public void Question3b()
     {
-        // Your code here
-        // ...
+        int x = 3;
+        int y = 5;
+        HVector2D a = new HVector2D(x, y);
+        HVector2D b = a*2;
 
-        //DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
-        // Your code here
+
+        DebugExtension.DebugArrow(Vector3.zero, (a/2).ToUnityVector3(), Color.red, 60f);
+        DebugExtension.DebugArrow(new Vector3 (1,0,0), b.ToUnityVector3(), Color.green, 60f);
+
+        
     }
 
     public void Question3c()
