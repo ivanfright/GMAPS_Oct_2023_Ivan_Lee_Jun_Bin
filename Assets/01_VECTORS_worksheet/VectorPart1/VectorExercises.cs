@@ -37,6 +37,8 @@ public class VectorExercises : MonoBehaviour
             Projection();
     }
 
+    
+
     public void CalculateGameDimensions()
     {
         GameHeight = Camera.main.orthographicSize * 2f;
