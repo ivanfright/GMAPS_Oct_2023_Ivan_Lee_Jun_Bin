@@ -30,7 +30,7 @@ public class Mario : MonoBehaviour
         gravityNorm = gravityDir.normalized;
         rb.AddForce(gravityNorm * gravityStrength);
 
-        float angle = Vector3.SignedAngle(Vector3.right, gravityDir, Vector3.forward);
+        float angle = Vector3.SignedAngle(Vector3.down, gravityDir, Vector3.forward);
         rb.MoveRotation(Quaternion.Euler(0,0,angle));
 
         DebugExtension.DebugArrow(transform.position,gravityNorm * gravityStrength, Color.red);

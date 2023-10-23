@@ -160,7 +160,7 @@ public class VectorExercises : MonoBehaviour
         HVector2D c = new HVector2D(2, 2);
 
         //HVector2D v1 = b - a;
-        // Your code here
+        //Your code here
 
         //HVector2D proj = // Your code here
 
