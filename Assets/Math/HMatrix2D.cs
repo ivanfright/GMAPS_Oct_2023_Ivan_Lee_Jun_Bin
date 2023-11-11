@@ -72,46 +72,69 @@ public class HMatrix2D
         return result;
     }
 
-    // Note that the second argument is a HVector2D object
-    //
-    //public static HVector2D operator *(HMatrix2D left, HVector2D right)
-    //{
-    //return // your code here
-    //}
+    public static HVector2D operator *(HMatrix2D left, HVector2D right)
+    {
 
-    // Note that the second argument is a HMatrix2D object
-    //
-    //public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
-    //{
-    //return new HMatrix2D
-    //(
-    /* 
-        00 01 02    00 xx xx
-        xx xx xx    10 xx xx
-        xx xx xx    20 xx xx
-        */
-    //left.Entries[0, 0] * right.Entries[0, 0] + left.Entries[0, 1] * right.Entries[1, 0] + left.Entries[0, 2] * right.Entries[2, 0],
+        return new HVector2D
+        (
+            left.Entries[0, 0] * right.x + left.Entries[0, 1] * right.y + left.Entries[0, 2] * right.h,
+            left.Entries[1, 0] * right.x + left.Entries[1, 1] * right.y + left.Entries[1, 2] * right.h
+        );
+    }
 
-    /* 
-        00 01 02    xx 01 xx
-        xx xx xx    xx 11 xx
-        xx xx xx    xx 21 xx
-        */
-    //left.Entries[0, 0] * right.Entries[0, 1] + left.Entries[0, 1] * right.Entries[1, 1] + left.Entries[0, 2] * right.Entries[2, 1],
+    
+    public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
+    {
+        return new HMatrix2D
+        (
+            // First row
+            left.Entries[0, 0] * right.Entries[0, 0] + left.Entries[0, 1] * right.Entries[1, 0] + left.Entries[0, 2] * right.Entries[2, 0],
+            left.Entries[0, 0] * right.Entries[0, 1] + left.Entries[0, 1] * right.Entries[1, 1] + left.Entries[0, 2] * right.Entries[2, 1],
+            left.Entries[0, 0] * right.Entries[0, 2] + left.Entries[0, 1] * right.Entries[1, 2] + left.Entries[0, 2] * right.Entries[2, 2],
 
-    // and so on for another 7 entries
-    //);
-    //}
+            // Second row
+            left.Entries[1, 0] * right.Entries[0, 0] + left.Entries[1, 1] * right.Entries[1, 0] + left.Entries[1, 2] * right.Entries[2, 0],
+            left.Entries[1, 0] * right.Entries[0, 1] + left.Entries[1, 1] * right.Entries[1, 1] + left.Entries[1, 2] * right.Entries[2, 1],
+            left.Entries[1, 0] * right.Entries[0, 2] + left.Entries[1, 1] * right.Entries[1, 2] + left.Entries[1, 2] * right.Entries[2, 2],
 
-    //public static bool operator ==(HMatrix2D left, HMatrix2D right)
-    //{
-    // your code here
-    //}
+            // Third row
+            left.Entries[2, 0] * right.Entries[0, 0] + left.Entries[2, 1] * right.Entries[1, 0] + left.Entries[2, 2] * right.Entries[2, 0],
+            left.Entries[2, 0] * right.Entries[0, 1] + left.Entries[2, 1] * right.Entries[1, 1] + left.Entries[2, 2] * right.Entries[2, 1],
+            left.Entries[2, 0] * right.Entries[0, 2] + left.Entries[2, 1] * right.Entries[1, 2] + left.Entries[2, 2] * right.Entries[2, 2]
+        );
+    }
 
-    //public static bool operator !=(HMatrix2D left, HMatrix2D right)
-    //{
-    // your code here
-    //}
+    public static bool operator ==(HMatrix2D left, HMatrix2D right)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                if (left.Entries[row, col] != right.Entries[row, col])
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public static bool operator !=(HMatrix2D left, HMatrix2D right)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                if (left.Entries[row, col] != right.Entries[row, col])
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     //public override bool Equals(object obj)
     //{
