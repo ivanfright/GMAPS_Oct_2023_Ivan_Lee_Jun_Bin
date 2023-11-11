@@ -61,10 +61,16 @@ public class HMatrix2D
         return result;
     }
 
-    //public static HMatrix2D operator *(HMatrix2D left, float scalar)
-    //{
-    //return // your code here
-    //}
+    public static HMatrix2D operator *(HMatrix2D left, float scalar)
+    {
+        HMatrix2D result = new HMatrix2D(
+            left.Entries[0, 0] * scalar, left.Entries[0, 1] * scalar, left.Entries[0, 2] * scalar,
+            left.Entries[1, 0] * scalar, left.Entries[1, 1] * scalar, left.Entries[1, 2] * scalar,
+            left.Entries[2, 0] * scalar, left.Entries[2, 1] * scalar, left.Entries[2, 2] * scalar
+        );
+
+        return result;
+    }
 
     // Note that the second argument is a HVector2D object
     //
