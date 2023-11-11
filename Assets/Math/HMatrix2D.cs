@@ -27,8 +27,8 @@ public class HMatrix2D
              float m20, float m21, float m22)
     {
         Entries[0,0] = m00;
-        Entries[0,2] = m01;
-        Entries[0,3] = m02;
+        Entries[0,1] = m01;
+        Entries[0,2] = m02;
 
         Entries[1,0] = m10;
         Entries[1,1] = m11;
@@ -41,81 +41,87 @@ public class HMatrix2D
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
-        return // your code here
+        HMatrix2D result = new HMatrix2D(
+            left.Entries[0, 0] + right.Entries[0, 0], left.Entries[0, 1] + right.Entries[0, 1], left.Entries[0, 2] + right.Entries[0, 2],
+            left.Entries[1, 0] + right.Entries[1, 0], left.Entries[1, 1] + right.Entries[1, 1], left.Entries[1, 2] + right.Entries[1, 2],
+            left.Entries[2, 0] + right.Entries[2, 0], left.Entries[2, 1] + right.Entries[2, 1], left.Entries[2, 2] + right.Entries[2, 2]
+        );
+
+        return result;
     }
 
-    public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
-    {
-        return // your code here
-    }
+    //public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
+    //{
+    //return // your code here
+    //}
 
-    public static HMatrix2D operator *(HMatrix2D left, float scalar)
-    {
-        return // your code here
-    }
+    //public static HMatrix2D operator *(HMatrix2D left, float scalar)
+    //{
+    //return // your code here
+    //}
 
     // Note that the second argument is a HVector2D object
     //
-    public static HVector2D operator *(HMatrix2D left, HVector2D right)
-    {
-        return // your code here
-    }
+    //public static HVector2D operator *(HMatrix2D left, HVector2D right)
+    //{
+    //return // your code here
+    //}
 
     // Note that the second argument is a HMatrix2D object
     //
-    public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
-    {
-        //return new HMatrix2D
-        (
-            /* 
-                00 01 02    00 xx xx
-                xx xx xx    10 xx xx
-                xx xx xx    20 xx xx
-                */
-            left.Entries[0, 0] * right.Entries[0, 0] + left.Entries[0, 1] * right.Entries[1, 0] + left.Entries[0, 2] * right.Entries[2, 0],
+    //public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
+    //{
+    //return new HMatrix2D
+    //(
+    /* 
+        00 01 02    00 xx xx
+        xx xx xx    10 xx xx
+        xx xx xx    20 xx xx
+        */
+    //left.Entries[0, 0] * right.Entries[0, 0] + left.Entries[0, 1] * right.Entries[1, 0] + left.Entries[0, 2] * right.Entries[2, 0],
 
-            /* 
-                00 01 02    xx 01 xx
-                xx xx xx    xx 11 xx
-                xx xx xx    xx 21 xx
-                */
-            left.Entries[0, 0] * right.Entries[0, 1] + left.Entries[0, 1] * right.Entries[1, 1] + left.Entries[0, 2] * right.Entries[2, 1],
+    /* 
+        00 01 02    xx 01 xx
+        xx xx xx    xx 11 xx
+        xx xx xx    xx 21 xx
+        */
+    //left.Entries[0, 0] * right.Entries[0, 1] + left.Entries[0, 1] * right.Entries[1, 1] + left.Entries[0, 2] * right.Entries[2, 1],
 
-        // and so on for another 7 entries
-    );
-    }
+    // and so on for another 7 entries
+    //);
+    //}
 
     //public static bool operator ==(HMatrix2D left, HMatrix2D right)
     //{
-        // your code here
+    // your code here
     //}
 
     //public static bool operator !=(HMatrix2D left, HMatrix2D right)
     //{
-        // your code here
+    // your code here
     //}
 
     //public override bool Equals(object obj)
     //{
-        // your code here
+    // your code here
     //}
 
     //public override int GetHashCode()
     //{
-        // your code here
+    // your code here
     //}
 
     //public HMatrix2D transpose()
     //{
-        //return
+    //return
     //}
 
     //public float getDeterminant()
     //{
-        //return 
+    //return 
     //}
 
-    public void setIdentity()
+    /*public void setIdentity()
     {
         for (int y = 0; y < 3; y++)
         {
@@ -129,6 +135,19 @@ public class HMatrix2D
                 {
                     Entries[x, y] = 0;
                 }
+            }
+        }
+    }*/
+
+    public void setIdentity()
+    {
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                Entries[x, y] = (x == y) ? 1 : 0;
+                //x equal to y, set to 1
+                //else set to 0
             }
         }
     }
