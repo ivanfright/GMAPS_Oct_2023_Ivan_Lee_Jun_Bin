@@ -1,57 +1,56 @@
-﻿//// Uncomment this whole file.
+﻿
+//using Mono.Cecil.cil;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//using Mono.Cecil.Cil;
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+public class transformmesh : MonoBehaviour
+{
+    [HideInInspector]
+    public Vector3[] vertices { get; private set; }
 
-//public class TransformMesh : MonoBehaviour
-//{
-//    [HideInInspector]
-//    public Vector3[] vertices { get; private set; }
+    private HMatrix2D transformMatrix = new HMatrix2D();
+    private HMatrix2D toOriginMatrix = new HMatrix2D();
+    private HMatrix2D fromOriginMatrix = new HMatrix2D();
+    private HMatrix2D rotateMatrix = new HMatrix2D();
 
-//    private HMatrix2D transformMatrix = new HMatrix2D();
-//    HMatrix2D toOriginMatrix = new HMatrix2D();
-//    HMatrix2D fromOriginMatrix = new HMatrix2D();
-//    HMatrix2D rotateMatrix = new HMatrix2D();
+    private MeshManager meshManager;
+    private HVector2D pos = new HVector2D();
 
-//    private MeshManager meshManager;
-//    HVector2D pos = new HVector2D();
+    void Start()
+    {
+        meshManager = GetComponent<MeshManager>();
+        pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
-//    void Start()
-//    {
-//        meshManager = GetComponent<MeshManager>();
-//        pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
-
-//        // Your code here
-//    }
+        // Your code here
+    }
 
 
-//    void Translate(float x, float y)
-//    {
-//        // Your code here
-//    }
+    void translate(float x, float y)
+    {
+        // your code here
+    }
 
-//    void Rotate(float angle)
-//    {
-//        transformMatrix.SetIdentity();
+    void rotate(float angle)
+    {
+        transformMatrix.setIdentity();
 
-//        // Your code here
+        // your code here
 
-//        transformMatrix = fromOriginMatrix * // Your code here;
+        transformMatrix = fromOriginMatrix * rotateMatrix * toOriginMatrix;
 
-//        Transform();
-//    }
+        transform();
+    }
 
-//    private void Transform()
-//    {
-        //vertices = meshManager.clonedMesh.vertices;
+    private void transform()
+    {
+        vertices = meshManager.clonedMesh.vertices;
 
-        //for (int i = 0; i < vertices.Length; i++)
-        //{
-        //    // Your code here
-        //}
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            // your code here
+        }
 
-        //meshManager.clonedMesh.vertices = vertices;
-//    }
-//}
+        meshManager.clonedMesh.vertices = vertices;
+    }
+}
