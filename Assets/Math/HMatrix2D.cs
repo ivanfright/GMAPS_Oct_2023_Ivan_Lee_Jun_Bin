@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -189,12 +190,20 @@ public class HMatrix2D
 
     public void setTranslationMat(float transX, float transY)
     {
-        // your code here
+        setIdentity();
+        Entries[0, 2] = transX;
+        Entries[1, 2] = transY;
     }
 
     public void setRotationMat(float rotDeg)
     {
-        // your code here
+        setIdentity();
+        float rad = MathF.PI * rotDeg / 180.0f; // This convert degrees to radians
+
+        Entries[0, 0] = MathF.Cos(rad);
+        Entries[0, 1] = -MathF.Sin(rad);
+        Entries[1, 0] = MathF.Sin(rad);
+        Entries[1, 1] = MathF.Cos(rad);
     }
 
     public void setScalingMat(float scaleX, float scaleY)

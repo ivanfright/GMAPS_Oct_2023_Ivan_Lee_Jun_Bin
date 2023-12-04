@@ -19,9 +19,6 @@ public class TestMatrix : MonoBehaviour
         HMatrix2D mat1 = new HMatrix2D(1, 2, 3, 4, 5, 6, 7, 8, 9);
         HMatrix2D mat2 = new HMatrix2D(9, 8, 7, 6, 5, 4, 3, 2, 1);
 
-        //2x1 vector
-        HVector2D vec1 = new HVector2D(1, 2);
-
         // Declare a result matrix for multiplication
         HMatrix2D resultMat;
 
@@ -30,9 +27,6 @@ public class TestMatrix : MonoBehaviour
         Debug.Log("Result of mat1 * mat2:");
         resultMat.Print();
 
-        // Test 2: Multiply a 3x3 matrix with a 2x1 vector
-        HVector2D resultVec = mat1 * vec1;
-        Debug.Log("Result of mat1 * vec1:");
-        print(resultVec.x + ", " + resultVec.y);
+        
     }
 }
