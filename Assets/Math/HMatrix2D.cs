@@ -198,7 +198,7 @@ public class HMatrix2D
     public void setRotationMat(float rotDeg)
     {
         setIdentity();
-        float rad = MathF.PI * rotDeg / 180.0f; // This convert degrees to radians
+        float rad = rotDeg * Mathf.Deg2Rad;
 
         Entries[0, 0] = MathF.Cos(rad);
         Entries[0, 1] = -MathF.Sin(rad);
