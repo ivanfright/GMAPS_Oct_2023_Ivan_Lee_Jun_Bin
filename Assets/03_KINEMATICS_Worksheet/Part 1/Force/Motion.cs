@@ -8,8 +8,10 @@ public class Motion : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Time past
         float dt = Time.deltaTime;
 
+        //Move by time
         float dx = Velocity.x * dt;
         float dy = Velocity.y * dt;
         float dz = Velocity.z * dt;
