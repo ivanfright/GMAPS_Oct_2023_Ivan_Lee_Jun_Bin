@@ -14,15 +14,22 @@ public class HMatrix2D
 
     public HMatrix2D(float[,] multiArray)
     {
+        //y would start from 0
+        //if y is lesser than 3
+        //the next iteration plus 1
+        //ensuring this for loop repeat 3 times
         for (int y = 0; y < 3; y++)
         {
+            //same goes for the x
             for (int x = 0; x < 3; x++)
             {
+                //Then this is the array
                 Entries[x,y] = multiArray[x, y];
             }
         }
     }
 
+    //This is basically creating a 3 by 3 grid
     public HMatrix2D(float m00, float m01, float m02,
              float m10, float m11, float m12,
              float m20, float m21, float m22)
@@ -40,19 +47,26 @@ public class HMatrix2D
         Entries[2,2] = m22;
     }
 
+    //This makes it so our 3x3 is able to add to another 3x3
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
     {
         HMatrix2D result = new HMatrix2D(
+            //this first row
+            // the first add the second and repeated 3 times as it is column of 3
             left.Entries[0, 0] + right.Entries[0, 0], left.Entries[0, 1] + right.Entries[0, 1], left.Entries[0, 2] + right.Entries[0, 2],
+            //second row
             left.Entries[1, 0] + right.Entries[1, 0], left.Entries[1, 1] + right.Entries[1, 1], left.Entries[1, 2] + right.Entries[1, 2],
+            //third row
             left.Entries[2, 0] + right.Entries[2, 0], left.Entries[2, 1] + right.Entries[2, 1], left.Entries[2, 2] + right.Entries[2, 2]
         );
 
         return result;
     }
 
+    //Minus operator works almost the same as the plus operator
     public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     {
+        //but with the left and right values deducting each other
         HMatrix2D result = new HMatrix2D(
                 left.Entries[0, 0] - right.Entries[0, 0], left.Entries[0, 1] - right.Entries[0, 1], left.Entries[0, 2] - right.Entries[0, 2],
                 left.Entries[1, 0] - right.Entries[1, 0], left.Entries[1, 1] - right.Entries[1, 1], left.Entries[1, 2] - right.Entries[1, 2],
@@ -64,6 +78,7 @@ public class HMatrix2D
 
     public static HMatrix2D operator *(HMatrix2D left, float scalar)
     {
+        //this scaling
         HMatrix2D result = new HMatrix2D(
             left.Entries[0, 0] * scalar, left.Entries[0, 1] * scalar, left.Entries[0, 2] * scalar,
             left.Entries[1, 0] * scalar, left.Entries[1, 1] * scalar, left.Entries[1, 2] * scalar,
@@ -73,6 +88,7 @@ public class HMatrix2D
         return result;
     }
 
+    //this is when it multiply a 3x3 by 3x1
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
 
@@ -84,6 +100,7 @@ public class HMatrix2D
     }
 
     
+    //this is for a 3x3 multiply by a 3x3
     public static HMatrix2D operator *(HMatrix2D left, HMatrix2D right)
     {
         return new HMatrix2D
@@ -208,6 +225,9 @@ public class HMatrix2D
 
     public void setScalingMat(float scaleX, float scaleY)
     {
+        Entries[0, 0] = scaleX;
+        Entries[1, 1] = scaleY;
+
         // your code here
         setIdentity();
     }

@@ -10,7 +10,7 @@ public class TestMatrix : MonoBehaviour
     {
         Qn2();
         mat.setIdentity();
-        mat.Print();
+        //mat.Print();
     }
 
     public void Qn2()
