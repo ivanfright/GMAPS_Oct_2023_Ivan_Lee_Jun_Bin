@@ -13,6 +13,7 @@ public class Ball2D : MonoBehaviour
 
     private void Start()
     {
+        //get the position
         Position.x = transform.position.x;
         Position.y = transform.position.y;
 
@@ -24,6 +25,7 @@ public class Ball2D : MonoBehaviour
 
     public bool IsCollidingWith(float x, float y)
     {
+        //collisions
         float distance = Util.FindDistance(Position, new HVector2D(x,y));
         return distance <= Radius;
     }
@@ -41,12 +43,15 @@ public class Ball2D : MonoBehaviour
 
     private void UpdateBall2DPhysics(float deltaTime)
     {
+        //the movement
         float displacementX = Velocity.x * deltaTime;
         float displacementY = Velocity.y * deltaTime;
 
+        //applying movement
         Position.x += displacementX;
         Position.y += displacementY;
 
+        //Transforming it
         transform.position = new Vector2(Position.x, Position.y);
     }
 }
